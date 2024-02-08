@@ -1,4 +1,4 @@
-# Introduction
+ # Introduction
 Hello! This repository is example of usage django models. Here I created DB that can create `Teacher`, `Class`, `Subject` and `Student`.
 I created very simple interface to interact with DB.
 
@@ -72,8 +72,19 @@ class Student(models.Model):
     age = models.IntegerField()
     grade = models.IntegerField()
 ```
+### Making migrations of models
+To create migration write in terminal:
+```
+python3 manage.py makemigrations
+```
 
-#Making Interface
+And after that we need to make migration
+```
+python3 manage.py migrate
+```
+
+
+# Making Interface
 So here I'm gonna add to `main.py` Django-setup:
 ```python
 import os
