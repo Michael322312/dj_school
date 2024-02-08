@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Subject(models.Model):
     name = models.CharField(max_length = 63)
-    teacher = models.ForeignKey("Teacher", on_delete = models.DO_NOTHING)
+    teacher = models.ManyToManyField("Teacher")
 
 class Class(models.Model):
     grade = models.IntegerField()
