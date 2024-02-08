@@ -50,7 +50,7 @@ def add_teacher_subject(teacher_id, subject_id):
 
 
 while True:
-    print("Choose an action:\n1 - Create Subject\n2 - Create Teacher\n3 - Create Student\n4 - Create Class\n5 - Link Teacher to Subject\n0 - Exit\n")
+    print("Choose an action:\n1 - Create Subject\n2 - Create Teacher\n3 - Create Student\n4 - Create Class\n5 - Link Teacher to Subject\n6 - Show all teachers\n7 - Show all subjects\n0 - Exit\n")
     choise = int(input("Your choice: "))
 
     match choise:
@@ -95,7 +95,14 @@ while True:
             subject_id = int(input("Enter subject id: "))
             add_teacher_subject(teacher_id, subject_id)
             print("Subject added to teacher!")
-
+        case 6:
+            print("\nHere is full of teachers:")
+            for teacher in Teacher.objects.all():
+                print(f"{teacher.id}) Name: '{teacher.name}' Age: {teacher.age} Subject:{[i.name for i in teacher.subjects.all()]}")
+        case 7:
+            print("\nHere is all subjects:")
+            for subject in Subject.objects.all():
+                print(f"{subject.id}) {subject.name}")
         case 0:
             break
 
