@@ -50,7 +50,7 @@ def add_teacher_subject(teacher_id, subject_id):
 
 
 while True:
-    print("Choose an action:\n1 - Create Subject\n2 - Create Teacher\n3 - Create Student\n4 - Create Class\n5 - Link Teacher to Subject\n6 - Show all teachers\n7 - Show all subjects\n0 - Exit\n")
+    print("Choose an action:\n1 - Create Subject\n2 - Create Teacher\n3 - Create Student\n4 - Create Class\n5 - Link Teacher to Subject\n6 - Show all teachers\n7 - Show all subjects\n8 - Show clases for date\n0 - Exit\n")
     choise = int(input("Your choice: "))
 
     match choise:
@@ -103,6 +103,13 @@ while True:
             print("\nHere is all subjects:")
             for subject in Subject.objects.all():
                 print(f"{subject.id}) {subject.name}")
+        case 8:
+            date = input("Enter date in format(YYYY-MM-DD):\n")
+            classes = Class.objects.filter(date=date)
+            print("Here are all classes for", date)
+            for i in classes:
+                print(f"ID - '{i.id}' Time - '{i.time}' Subject - '{i.subject.name}' Teacher - '{i.teacher.name}' Grade - '{i.grade}'")
+            
         case 0:
             break
 
